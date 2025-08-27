@@ -1,0 +1,29 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Configuración de IDE
+.idea/
+.vscode/
+
+# Archivos de PhpStorm
+*.iml
+
+# Archivos de compilación de Sass
+*.css.map
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Dependencias de Node (si llegas a usar npm/yarn)
+node_modules/
+dist/
+.env
+
+# Cache
+.cache/
+.sass-cache/
+
+# Archivos de despliegue
+/vendor/
