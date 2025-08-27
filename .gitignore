@@ -18,6 +18,7 @@ Thumbs.db
 
 # Dependencias de Node (si llegas a usar npm/yarn)
 node_modules/
+dist/
 .env
 
 # Cache
