@@ -18,6 +18,7 @@ Thumbs.db
 
 # Dependencias de Node (si llegas a usar npm/yarn)
 node_modules/
+.env
 
 # Cache
 .cache/
@@ -25,4 +26,3 @@ node_modules/
 
 # Archivos de despliegue
 /vendor/
-node_modules/
