@@ -1,29 +1,40 @@
 # Archivos de sistema
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Configuración de IDE
 .idea/
 .vscode/
-
-# Archivos de PhpStorm
 *.iml
-
-# Archivos de compilación de Sass
-*.css.map
 
 # Archivos temporales
 *.log
 *.tmp
 
-# Dependencias de Node (si llegas a usar npm/yarn)
+# Archivos de compilación de Sass
+*.css.map
+
+# Archivos de compilación de JS
+*.js.map
+
+# Dependencias de Node
 node_modules/
+
+# Archivos de build (si no se quieren versionar)
 dist/
+build/
+public/
+
+# Variables de entorno
 .env
 
 # Cache
 .cache/
 .sass-cache/
 
-# Archivos de despliegue
-/vendor/
+# Archivos de despliegue (ej: PHP Composer)
+vendor/
+
+# Otros
+*.tsbuildinfo
