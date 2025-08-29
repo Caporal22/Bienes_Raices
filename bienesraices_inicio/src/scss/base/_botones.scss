@@ -1,0 +1,11 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.boton-amarillo {
+  @include m.boton;
+}
+
+.boton-verde {
+  @include m.boton;
+
+}

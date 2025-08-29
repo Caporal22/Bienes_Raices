@@ -1,90 +1,98 @@
+//Gulpfile definitivo
 const { src, dest, watch, series, parallel } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
+const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
-const postcss = require('gulp-postcss')
-const sourcemaps = require('gulp-sourcemaps')
 const cssnano = require('cssnano');
+const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
 const terser = require('gulp-terser-js');
 const rename = require('gulp-rename');
-const imagemin = require('gulp-imagemin'); // Minificar imagenes 
-const notify = require('gulp-notify');
-notify.logLevel(0);
+const imagemin = require('gulp-imagemin');
 const cache = require('gulp-cache');
-const clean = require('gulp-clean');
 const webp = require('gulp-webp');
 const browserSync = require('browser-sync').create();
 
-
+// Rutas
 const paths = {
     scss: 'src/scss/**/*.scss',
     js: 'src/js/**/*.js',
     imagenes: 'src/img/**/*'
-}
+};
 
+// Compila SCSS a CSS
 function css() {
     return src(paths.scss)
         .pipe(sourcemaps.init())
-        .pipe(sass())
+        .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer(), cssnano()]))
-        // .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write('.'))
-        .pipe(dest('build/css'));
+        .pipe(dest('build/css'))
+        .pipe(browserSync.stream());
 }
 
+// Compila y minifica JS
 function javascript() {
     return src(paths.js)
-      .pipe(sourcemaps.init())
-      .pipe(concat('bundle.js'))
-      .pipe(terser())
-      .pipe(sourcemaps.write('.'))
-      .pipe(rename({ suffix: '.min' }))
-      .pipe(dest('./build/js'))
+        .pipe(sourcemaps.init())
+        .pipe(concat('bundle.js'))
+        .pipe(terser())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest('build/js'))
+        .pipe(browserSync.stream());
 }
 
+// Optimiza imágenes
 function imagenes() {
     return src(paths.imagenes)
         .pipe(cache(imagemin({ optimizationLevel: 3 })))
         .pipe(dest('build/img'))
-        // .pipe(notify('Imagen Completada' ));
+        .pipe(browserSync.stream());
 }
 
+// Genera versión WebP
 function versionWebp() {
     return src(paths.imagenes)
         .pipe(webp())
         .pipe(dest('build/img'))
-        // .pipe(notify({ message: 'Imagen Completada' }));
+        .pipe(browserSync.stream());
 }
 
-
-function watchArchivos() {
-    watch(paths.scss, css);
-    watch(paths.js, javascript);
-    watch(paths.imagenes, imagenes);
-    watch(paths.imagenes, versionWebp);
-}
-
-// Configuración para phpstorm
-function servidor() {
-    browserSync.init({
-        proxy: "localhost:8000",  // El host que voy a utilizar
-        notify: false,            // Molestias en las notificaciones
-        open: true                // Abrir el navegador automaticamente
-    });
-
-    watch(paths.scss, series(css, recargar));
-    watch(paths.js, series(javascript, recargar));
-    watch(paths.imagenes, series(imagenes, versionWebp, recargar));
-}
-
-// Función para recargar el navegador
+// Recarga navegador
 function recargar(done) {
     browserSync.reload();
     done();
 }
 
+// Servidor estático + watchers
+function servidor() {
+    browserSync.init({
+        server: {
+            baseDir: "./" // carpeta raíz, donde está index.html
+        },
+        notify: false,
+        open: true
+    });
+
+    watch(paths.scss, css);
+    watch(paths.js, javascript);
+    watch(paths.imagenes, series(imagenes, versionWebp));
+    watch("*.html").on("change", () => browserSync.reload());
+    watch("**/*.html").on("change", () => browserSync.reload());
+}
+
+// Limpiar caché de gulp-cache
+function limpiarCache(done) {
+    return cache.clearAll(done);
+}
+
+// Exportar tareas
 exports.css = css;
-exports.watchArchivos = watchArchivos;
+exports.javascript = javascript;
+exports.imagenes = imagenes;
+exports.versionWebp = versionWebp;
+exports.limpiarCache = limpiarCache;
 exports.default = series(
     parallel(css, javascript, imagenes, versionWebp),
     servidor

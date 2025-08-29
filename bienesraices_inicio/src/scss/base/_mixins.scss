@@ -1,5 +1,6 @@
 /** Media Queries **/
 @use 'variables' as v;
+@use 'sass:math';
 @mixin telefono {
     @media (min-width: #{v.$telefono}) {
         @content;
@@ -21,4 +22,15 @@
     display: grid;
     gap: $espaciado;
     grid-template-columns: repeat($columnas, 1fr);
+}
+
+@mixin boton($bgColor, $display) {
+  background-color: $bgColor;
+  color: v.$blanco;
+  font-weight: v.$bold;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  margin-top: math.div(v.$separacion, 2);
+
 }

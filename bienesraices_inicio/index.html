@@ -2,12 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bienes Raíces</title>
+    <title>Bienes Raices</title>
     <link rel="stylesheet" href="build/css/app.css">
 </head>
 <body>
+    <header class="header inicio">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <a href="/">
+                <img src="build/img/logo.svg" alt="Logotipo de Bienes Raices">
+                </a>
+                <div class="navegacion">
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="anuncios.html">Anuncios</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
 
+            </div> <!-- Cierre de la barra -->
+            <h1>Venta de Casas y Departamentos Exclusivos de Lujo</h1>
+        </div>
+    </header>
+    <main class="contenedor seccion">
+        <h1>Más Sobre Nosotros</h1>
+        <div class="iconos-nosotros">
+            <div class="icono">
+                <img src="build/img/icono1.svg" alt="Icono seguridad" loading="lazy">
+                <h3>Seguridad</h3>
+                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below
+                    for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum
+                    et Malorum" by Cicero are also reproduced in their exact original form,
+                    accompanied by English versions from the 1914 translation by H. Rackham.
+                </p>
+            </div>
+            <div class="icono">
+                <img src="build/img/icono2.svg" alt="Icono Precio" loading="lazy">
+                <h3>Precio</h3>
+                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below
+                    for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum
+                    et Malorum" by Cicero are also reproduced in their exact original form,
+                    accompanied by English versions from the 1914 translation by H. Rackham.
+                </p>
+            </div>
+            <div class="icono">
+                <img src="build/img/icono3.svg" alt="Icono Tiempo" loading="lazy">
+                <h3>A Tiempo</h3>
+                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below
+                    for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum
+                    et Malorum" by Cicero are also reproduced in their exact original form,
+                    accompanied by English versions from the 1914 translation by H. Rackham.
+                </p>
+            </div>
+        </div>
+    </main>
 
-<script src="build/js/bundle.min.js"></script>
+    <section class="seccion contenedor">
+        <h2>Casas y Departamentos en Venta</h2>
+        <div class="contenedor-anuncios">
+            <div class="anuncio">
+                <picture>
+                    <source srcset="build/img/anuncio1.webp" type="image/webp">
+                    <source srcset="build/img/anuncio1.jpg" type="image/jpeg">
+                    <img loading="lazy" src="build/img/anuncio1.jpg" alt=" Anuncio 1">
+                </picture>
+                <div class="contenido-anuncio">
+                    <h3>Casa de Lujo en el Lago</h3>
+                    <p>Casa en el lago con excelente vista, acabados de lujo a un excelente precio</p>
+                    <p class="precio">$3,000,000</p>
+                    <ul class="iconos-caracteristicas">
+                        <li>
+                            <img loading="lazy" src="build/img/icono_wc.svg" alt="Icono wc">
+                            <p>3</p>
+                        </li>
+                        <li>
+                            <img loading="lazy" src="build/img/icono_estacionamiento.svg" alt="Icono estacionamiento">
+                            <p>3</p>
+                        </li>
+                        <li>
+                            <img loading="lazy" src="build/img/icono_dormitorio.svg" alt="Icono dormitorio">
+                            <p>4</p>
+                        </li>
+                    </ul>
+                    <a href="anuncio.html" class="boton boton-amarillo">
+                        Ver Propiedad
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer seccion">
+        <div class="contenedor contenedor-footer">
+            <a href="nosotros.html">Nosotros</a>
+            <a href="anuncios.html">Anuncios</a>
+            <a href="blog.html">Blog</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <p class="copyright">Todos los derechos Reservados 2025 &copy;</p>
+    </footer>
+    <script src="build/js/bundle.min.js"></script>
 </body>
 </html>
