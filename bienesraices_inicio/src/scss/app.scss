@@ -11,3 +11,10 @@
 @use 'layout/navegacion';
 @use 'layout/iconos';
 @use 'layout/anuncios';
+@use 'layout/contactar';
+@use 'layout/inferior';
+@use 'layout/testimoniales';
+@use 'layout/formularios';
+
+/** Páginas internas **/
+@use 'internas/nosotros';
