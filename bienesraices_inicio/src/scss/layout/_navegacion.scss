@@ -1,19 +1,51 @@
 @use '../base/variables' as v;
 @use '../base/mixins' as m;
 
+.derecha{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include m.tablet{
+    align-items: flex-end;
+  }
+  .dark-mode-boton{
+    width: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    filter: invert(100%);
+    &:hover{
+      cursor: pointer;
+    }
+
+    @include m.tablet{
+      margin-top: 0rem;
+    }
+  }
+
+
+}
+
 .barra{
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding-top: 3rem;
   @include m.tablet{
+    align-items: flex-end;
     flex-direction: row;
     justify-content: space-between;
   }
 }
 .navegacion{
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 10s ease-in-out, opacity .4s linear, height .5s linear;
+  height: 0;
   @include m.tablet {
     display: flex;
     align-items: center;
+    opacity: 1;
+    visibility: visible;
   }
   a{
     color: v.$blanco;
@@ -22,6 +54,7 @@
     display: block;
     text-align: center;
     @include m.tablet{
+      margin-top: 1rem;
       margin-right: 2rem;
       font-size: 1.8rem;
 
@@ -31,4 +64,24 @@
     }
 
   }
+}
+
+/** Menú de hamburguesa **/
+.mobile-menu {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  @include m.tablet {
+    display: none;
+  }
+  img {
+    width: 5rem;
+
+  }
+}
+
+.mostrar {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
 }
