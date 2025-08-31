@@ -17,27 +17,42 @@
   h1, p {
     margin: 0;
   }
-  .precio {
+}
+
+.precio {
     color: v.$verde;
     font-weight: v.$bold;
     font-size: 3rem;
-  }
 }
 
 .iconos-caracteristicas {
   display: flex;
   list-style: none;
   padding: 0;
-
+  max-width: 40rem;
   li {
     flex: 1;
     display: flex;
     img {
       flex: 0 0 5rem;
       margin-right: 1rem;
+      @include m.tablet {
+        flex: 0 0 2rem;
+        height: 60%;
+        margin-right: .4rem;
+        margin-top: 1rem;
+      }
+
+      @include m.desktop {
+        flex: 0 0 5.5rem;
+        margin-right: 1rem;
+
+      }
+
     }
     p {
       font-weight: v.$black;
+
     }
   }
 }

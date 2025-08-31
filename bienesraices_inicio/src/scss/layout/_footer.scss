@@ -2,12 +2,18 @@
 @use '../base/variables' as v;
 @use '../base/mixins' as m;
 
-.footer{
+.footer {
   padding: math.div(v.$separacion, 2);
   background-color: v.$grisOscuro;
 
   .contenedor-footer{
-    padding-top: math.div(v.$separacion, 2)
+    padding-top: math.div(v.$separacion, 2);
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+    a{
+      color: v.$blanco;
+    }
   }
 
   .copyright{
