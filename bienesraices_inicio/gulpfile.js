@@ -69,7 +69,7 @@ function recargar(done) {
 function servidor() {
     browserSync.init({
         server: {
-            baseDir: "./" // carpeta raíz, donde está index.html
+            baseDir: "./" // carpeta raíz, donde está index.php
         },
         notify: false,
         open: true
