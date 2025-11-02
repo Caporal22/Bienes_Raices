@@ -1,4 +1,8 @@
-<?php include 'includes/templates/header.php';?>
+<?php
+require 'includes/funciones.php';
+incluirTemplate('header');
+?>
+
 <main class="contenedor seccion">
     <h1>Contacto</h1>
     <picture>
@@ -62,4 +66,4 @@
     <input type="submit" value="Enviar" class="boton-verde">
     </form>
 </main>
-<?php include 'includes/templates/footer.php';?>
+<?php incluirTemplate('footer');?>
