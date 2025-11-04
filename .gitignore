@@ -3,38 +3,38 @@
 Thumbs.db
 desktop.ini
 
-# Configuración de IDE
+# IDE
 .idea/
 .vscode/
 *.iml
 
-# Archivos temporales
+# Logs
 *.log
 *.tmp
 
-# Archivos de compilación de Sass
-*.css.map
-
-# Archivos de compilación de JS
-*.js.map
-
-# Dependencias de Node
+# Node
 node_modules/
 
-# Archivos de build (si no se quieren versionar)
+# Build
 dist/
 build/
 public/
 
 # Variables de entorno
 .env
+.env.*
+
+# Composer
+vendor/
+
+# CSS/JS maps
+*.css.map
+*.js.map
 
 # Cache
 .cache/
 .sass-cache/
 
-# Archivos de despliegue (ej: PHP Composer)
-vendor/
-
-# Otros
-*.tsbuildinfo
+# Configuración sensible
+/includes/config/*.php
+/config/*.php
